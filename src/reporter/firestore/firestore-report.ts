@@ -31,7 +31,7 @@ export class FirestoreReport<T> implements OutputTarget<T> {
             }
 
         } else
-            console.log('Exceeded max. number of Documents for Upload');
+            console.log('Exceeded max. number of Documents');
     }
 
 }
