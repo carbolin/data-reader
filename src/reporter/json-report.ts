@@ -17,6 +17,3 @@ export class JsonReport<T> implements OutputTarget<T> {
     }
 
 }
-
-
-
