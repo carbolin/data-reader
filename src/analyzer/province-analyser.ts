@@ -4,24 +4,13 @@ import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
-interface AddressConstraint {
-
-    country_code: string;
-    state_code: string;
-    state: string;
-    zipcode: string;
-    place: string;
-
-}
-
-export class ProvinceAnalyzer<T extends AddressConstraint> implements Analyzer<T> {
+export class ProvinceAnalyzer<T extends Address> implements Analyzer<T> {
 
     private _result: Partial<Province>[] = [];
 
     run(addresses: T[]): void {
 
         let provinces: Partial<Province>[] = addresses.map((address: T): Partial<Province> => {
-            // tslint:disable-next-line: max-line-length
             return { country: { code: address.country_code.toLowerCase() }, code: address.state_code.toLowerCase(), name: address.state.toLowerCase() };
         });
 

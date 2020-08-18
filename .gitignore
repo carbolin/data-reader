@@ -7,7 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # My Files
-plz_test.json
+data/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
