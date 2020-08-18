@@ -1,8 +1,8 @@
 import { JsonFileReader } from './file-reader/json-file-reader';
-import { AddressReader } from './data-reader/AddressReader';
+import { AddressReader } from './data-reader/address-reader';
 import { Address } from './models/Address';
 import { ProvinceAnalyzer } from './analyzer/province-analyser';
-import { JsonReport } from './reporter/JsonReport';
+import { JsonReport } from './reporter/json-report';
 import { Province } from './models/Province';
 
 const fileReader = new JsonFileReader<Address>('plz_test.json');
