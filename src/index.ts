@@ -15,7 +15,7 @@ import { StateAnalyzer } from './analyzer/state-analyzer';
 // const report = new FirestoreReport<Partial<Province>>(db, 'test');
 // report.print(analyzer.result);
 
-const fileReader = new TxtFileReader('../data/DE.txt');
+const fileReader = new TxtFileReader('../data/DK.txt');
 
 const addressReader = new GeonameReader(fileReader);
 addressReader.load();
