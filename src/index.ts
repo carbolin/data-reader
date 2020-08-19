@@ -6,7 +6,7 @@ import { Province } from './models/Province';
 import { FirestoreReport } from './reporter/firestore/firestore-report';
 import { DbInitiator } from './reporter/firestore/db-initiator';
 import { firebaseConfig } from './firebase-config';
-import { GeoFileReader } from './file-reader/geo-file-reader';
+import { TxtFileReader } from './file-reader/txt-file-reader';
 
 // const fileReader = new JsonFileReader<Address>('plz_li.json');
 
@@ -24,7 +24,7 @@ import { GeoFileReader } from './file-reader/geo-file-reader';
 // const report = new FirestoreReport<Partial<Province>>(db, 'test');
 // report.print(analyzer.result);
 
-const fileReader = new GeoFileReader('../plz_li.txt');
+const fileReader = new TxtFileReader('../plz_li.txt');
 
 const addressReader = new AddressReader(fileReader);
 addressReader.load();

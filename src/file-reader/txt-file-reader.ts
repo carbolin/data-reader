@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import _, { Dictionary } from 'lodash';
 
-export class GeoFileReader implements DataReader {
+export class TxtFileReader implements DataReader {
 
     data: string[][] = [];
 
@@ -19,7 +19,7 @@ export class GeoFileReader implements DataReader {
             encoding: 'utf-8'
         })
             .split('\n')
-            .map((row: string): string[] => _.dropRight(row.split('\t')));
+            .map((row: string): string[] => row.split('\t'));
     }
 
     get fileName(): string {
