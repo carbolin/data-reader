@@ -19,10 +19,10 @@ analyzer.run(addressReader.adresses);
 // const report = new JsonReport<Partial<Province>>();
 // report.print(analyzer.result);
 
-// const firestore = new DbInitiator(firebaseConfig);
-// const db = firestore.dbInit();
-// const report = new FirestoreReport<Partial<Province>>(db, 'test');
-// report.print(analyzer.result);
+const firestore = new DbInitiator(firebaseConfig);
+const db = firestore.dbInit();
+const report = new FirestoreReport<Partial<Province>>(db, 'test');
+report.print(analyzer.result);
 
 
 
