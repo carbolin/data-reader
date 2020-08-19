@@ -6,7 +6,7 @@ import { Address } from '../models/Address';
 
 export class StateAnalyzer implements Analyzer<Address> {
 
-    private _result!: Partial<Province>[];
+    private _result: Partial<Province>[] = [];
 
     run(addresses: Address[]): void {
 

@@ -25,17 +25,17 @@ export class GeonameReader {
             .map((element: Dictionary<string>): Address => {
 
                 return {
-                    country_code: element.country_code,
-                    zipcode: element.zipcode,
-                    place: element.place,
-                    state: element.state,
-                    state_code: element.state_code,
-                    province: element.province,
-                    province_code: parseInt(element.province_code, 10),
-                    community: element.community,
-                    community_code: parseInt(element.community_code, 10),
-                    latitude: parseInt(element.latitude, 10),
-                    longitude: parseInt(element.longitude, 10),
+                    country_code: element.country_code.toLowerCase(),
+                    zipcode: element.zipcode.toLowerCase(),
+                    place: element.place.toLowerCase(),
+                    state: element.state.toLowerCase(),
+                    state_code: element.state_code.toLowerCase(),
+                    province: element.province.toLowerCase(),
+                    province_code: +element.province_code,
+                    community: element.community.toLowerCase(),
+                    community_code: +element.community_code,
+                    latitude: +element.latitude,
+                    longitude: +element.longitude
                 };
             });
 

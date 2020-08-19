@@ -1,7 +1,6 @@
 import { DataReader } from '../models/DataReader';
 import path from 'path';
 import fs from 'fs';
-import _, { Dictionary } from 'lodash';
 
 export class TxtFileReader implements DataReader {
 
@@ -19,7 +18,8 @@ export class TxtFileReader implements DataReader {
             encoding: 'utf-8'
         })
             .split('\n')
-            .map((row: string): string[] => row.split('\t'));
+            .map((row: string): string[] => row.split('\t'))
+            .filter(String);
     }
 
     get fileName(): string {

@@ -5,6 +5,6 @@ export interface Province {
     code: string;
     name: string;
     country: Country;
-    places: {[key: number]: string[]};
+    places: {[key: string]: string[]};
     zipcodes: string[];
 }

@@ -10,8 +10,8 @@ export class ProvinceAnalyzer implements Analyzer<Address> {
 
     run(addresses: Address[]): void {
 
-        let provinces: Partial<Province>[] = addresses.map((address: Address): Partial<Province> => {
-            return { country: { code: address.country_code.toLowerCase() }, code: address.state_code.toLowerCase(), name: address.state.toLowerCase() };
+        let provinces: Partial<Province>[] = addresses.map((address): Partial<Province> => {
+            return { country: { code: address.country_code }, code: address.state_code, name: address.state };
         });
 
         provinces = _.uniqBy(provinces, province => province.code);
@@ -21,7 +21,7 @@ export class ProvinceAnalyzer implements Analyzer<Address> {
             const places = {};
 
             const zipcodes: string[] = _.uniq(addresses
-                .filter((address: Address): boolean => address.state_code.toLowerCase() === province.code)
+                .filter((address: Address): boolean => address.state_code === province.code)
                 .map((address: Address): string => address.zipcode));
 
 
@@ -29,7 +29,7 @@ export class ProvinceAnalyzer implements Analyzer<Address> {
 
                 const placesPerZip = addresses
                     .filter((address: Address): boolean => address.zipcode === zipcode)
-                    .map((address: Address) => address.place.toLowerCase());
+                    .map((address: Address) => address.place);
 
                 Object.assign(places, { [zipcode]: placesPerZip });
 
