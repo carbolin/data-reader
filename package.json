@@ -1,13 +1,8 @@
 {
   "name": "data-reader",
   "version": "1.0.0",
-  "description": "reading  data from files",
+  "description": "reading data from files",
   "main": "index.js",
-  "scripts": {
-    "start:build": "tsc -w",
-    "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carbolin/data-reader.git"
@@ -16,10 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "@types/lodash": "^4.14.159",
-    "concurrently": "^5.2.0",
+    "firebase": "^7.18.0",
     "lodash": "^4.17.20",
-    "nodemon": "^2.0.4",
-    "firebase": "^7.18.0"
+    "ts-node": "^8.10.2"
   },
   "devDependencies": {
     "@types/node": "^14.0.13",
