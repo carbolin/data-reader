@@ -10,14 +10,12 @@ export class JsonFileReader<T> implements DataReader<T> {
 
     read(): void {
 
-        if (path.extname(this._fileName) === '.json')
+        if (path.extname(this._fileName) !== '.json')
+            throw new Error(`${this._fileName} is not of JSON Format`);
 
-            this.data = JSON.parse(fs.readFileSync(this._fileName, {
-                encoding: 'utf-8'
-            }));
-
-        else throw new Error(`${this._fileName} is not of JSON Format`);
-
+        this.data = JSON.parse(fs.readFileSync(this._fileName, {
+            encoding: 'utf-8'
+        }));
 
         if (this.data.constructor !== Array)
 
