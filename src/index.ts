@@ -1,4 +1,3 @@
-import { JsonFileReader } from './file-reader/json-file-reader';
 import { AddressReader } from './data-reader/address-reader';
 import { Address } from './models/Address';
 import { ProvinceAnalyzer } from './analyzer/province-analyser';
@@ -26,10 +25,15 @@ import { GeoFileReader } from './file-reader/geo-file-reader';
 // report.print(analyzer.result);
 
 const fileReader = new GeoFileReader('../plz_li.txt');
-fileReader.read();
 
 const addressReader = new AddressReader(fileReader);
-
+addressReader.load();
+console.log(addressReader.adresses);
+const analyzer = new ProvinceAnalyzer();
+analyzer.run(addressReader.adresses);
+console.log(analyzer.result);
+const report = new JsonReport<Partial<Province>>();
+report.print(analyzer.result);
 
 
 

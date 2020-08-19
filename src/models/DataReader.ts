@@ -1,5 +1,5 @@
 export interface DataReader {
 
-    data: any[];
+    data: string[][];
     read(): void;
 }

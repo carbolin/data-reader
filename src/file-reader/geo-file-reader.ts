@@ -5,8 +5,7 @@ import _, { Dictionary } from 'lodash';
 
 export class GeoFileReader implements DataReader {
 
-    data: Dictionary<string>[] = [];
-    private address: string[] = ['country_code', 'zipcode', 'place', 'state', 'state_code', 'province', 'province_code', 'community', 'community_code', 'latitude', 'longitude'];
+    data: string[][] = [];
 
     constructor(private _fileName: string) { }
 
@@ -20,8 +19,7 @@ export class GeoFileReader implements DataReader {
             encoding: 'utf-8'
         })
             .split('\n')
-            .map((row: string): string[] => _.dropRight(row.split('\t')))
-            .map((element: string[]): Dictionary<string> => _.zipObject(this.address, element));
+            .map((row: string): string[] => _.dropRight(row.split('\t')));
     }
 
     get fileName(): string {
