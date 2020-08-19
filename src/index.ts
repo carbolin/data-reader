@@ -7,14 +7,15 @@ import { Province } from './models/Province';
 import { FirestoreReport } from './reporter/firestore/firestore-report';
 import { DbInitiator } from './reporter/firestore/db-initiator';
 import { firebaseConfig } from './firebase-config';
+import { TxtToJsonParser } from './file-parser/txt-to-json-parser';
 
-const fileReader = new JsonFileReader<Address>('plz_li.json');
+// const fileReader = new JsonFileReader<Address>('plz_li.json');
 
-const addressReader = new AddressReader(fileReader);
-addressReader.load();
+// const addressReader = new AddressReader(fileReader);
+// addressReader.load();
 
-const analyzer = new ProvinceAnalyzer();
-analyzer.run(addressReader.adresses);
+// const analyzer = new ProvinceAnalyzer();
+// analyzer.run(addressReader.adresses);
 
 // const report = new JsonReport<Partial<Province>>();
 // report.print(analyzer.result);
@@ -23,6 +24,10 @@ analyzer.run(addressReader.adresses);
 // const db = firestore.dbInit();
 // const report = new FirestoreReport<Partial<Province>>(db, 'test');
 // report.print(analyzer.result);
+
+const fileReader = new TxtToJsonParser('../plz_li.txt');
+fileReader.read();
+console.log(fileReader.data);
 
 
 
