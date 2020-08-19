@@ -1,1 +1,1 @@
-# data-reader
+# geoname-analyzer

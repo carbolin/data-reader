@@ -4,14 +4,14 @@ import { Province } from '../models/Province';
 import { Address } from '../models/Address';
 
 
-export class StateAnalyzer<T extends Address> implements Analyzer<T> {
+export class StateAnalyzer implements Analyzer<Address> {
 
     private _result!: Partial<Province>[];
 
-    run(addresses: T[]): void {
+    run(addresses: Address[]): void {
 
         const provinces: Partial<Province>[] = addresses
-            .map((address: T): Partial<Province> => {
+            .map((address: Address): Partial<Province> => {
                 return { country: { code: address.country_code }, code: address.state_code, name: address.state };
             });
 

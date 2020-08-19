@@ -3,14 +3,14 @@ import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
-export class ZipcodeAnalyzer<T extends Address> implements Analyzer<T> {
+export class ZipcodeAnalyzer implements Analyzer<Address> {
 
     private _result: string[] = [];
 
-    run(addresses: T[]): void {
+    run(addresses: Address[]): void {
 
         this._result = _.uniq(addresses
-            .map((address: T): string => address.zipcode));
+            .map((address: Address): string => address.zipcode));
     }
 
     get result(): string[] {

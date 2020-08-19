@@ -1,14 +1,14 @@
 {
-  "name": "data-reader",
+  "name": "geoname-analyzer",
   "version": "1.0.0",
   "description": "reading data from files",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carbolin/data-reader.git"
+    "url": "git+https://github.com/carbolin/geoname-analyzer.git"
   },
   "author": "carbolin",
-  "license": "MIT",
+  "license": "Creative Commons Attribution 4.0 International Public License",
   "dependencies": {
     "@types/lodash": "^4.14.159",
     "firebase": "^7.18.0",
@@ -21,7 +21,7 @@
     "typescript": "^3.9.7"
   },
   "bugs": {
-    "url": "https://github.com/carbolin/data-reader/issues"
+    "url": "https://github.com/carbolin/geoname-analyzer/issues"
   },
-  "homepage": "https://github.com/carbolin/data-reader#readme"
+  "homepage": "https://github.com/carbolin/geoname-analyzer#readme"
 }

@@ -4,13 +4,13 @@ import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
-export class StateWithZipcodesAnalyzer<T extends Address> implements Analyzer<T> {
+export class StateWithZipcodesAnalyzer implements Analyzer<Address> {
 
     private _result: Partial<Province>[] = [];
 
-    run(addresses: T[]): void {
+    run(addresses: Address[]): void {
 
-        let provinces: Partial<Province>[] = addresses.map((address: T): Partial<Province> => {
+        let provinces: Partial<Province>[] = addresses.map((address: Address): Partial<Province> => {
             return { country: { code: address.country_code }, code: address.state_code, name: address.state };
         });
 
@@ -19,8 +19,8 @@ export class StateWithZipcodesAnalyzer<T extends Address> implements Analyzer<T>
         provinces.forEach((province: Partial<Province>): void => {
 
             const zipcodes: string[] = _.uniq(addresses
-                .filter((address: T): boolean => address.state_code === province.code)
-                .map((address: T): string => address.zipcode));
+                .filter((address: Address): boolean => address.state_code === province.code)
+                .map((address: Address): string => address.zipcode));
 
             this._result.push({ ...province, zipcodes });
         });

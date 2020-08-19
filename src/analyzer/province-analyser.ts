@@ -4,13 +4,13 @@ import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
-export class ProvinceAnalyzer<T extends Address> implements Analyzer<T> {
+export class ProvinceAnalyzer implements Analyzer<Address> {
 
     private _result: Partial<Province>[] = [];
 
-    run(addresses: T[]): void {
+    run(addresses: Address[]): void {
 
-        let provinces: Partial<Province>[] = addresses.map((address: T): Partial<Province> => {
+        let provinces: Partial<Province>[] = addresses.map((address: Address): Partial<Province> => {
             return { country: { code: address.country_code.toLowerCase() }, code: address.state_code.toLowerCase(), name: address.state.toLowerCase() };
         });
 
@@ -21,15 +21,15 @@ export class ProvinceAnalyzer<T extends Address> implements Analyzer<T> {
             const places = {};
 
             const zipcodes: string[] = _.uniq(addresses
-                .filter((address: T): boolean => address.state_code.toLowerCase() === province.code)
-                .map((address: T): string => address.zipcode));
+                .filter((address: Address): boolean => address.state_code.toLowerCase() === province.code)
+                .map((address: Address): string => address.zipcode));
 
 
             zipcodes.forEach((zipcode) => {
 
                 const placesPerZip = addresses
-                    .filter((address: T): boolean => address.zipcode === zipcode)
-                    .map((address: T) => address.place.toLowerCase());
+                    .filter((address: Address): boolean => address.zipcode === zipcode)
+                    .map((address: Address) => address.place.toLowerCase());
 
                 Object.assign(places, { [zipcode]: placesPerZip });
 

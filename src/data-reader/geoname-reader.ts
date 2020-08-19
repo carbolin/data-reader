@@ -3,7 +3,7 @@ import { Address } from '../models/Address';
 import { Dictionary } from 'lodash';
 import _ from 'lodash';
 
-export class AddressReader {
+export class GeonameReader {
 
     private _addresses: Address[] = [];
     private keys: string[] = ['country_code', 'zipcode', 'place', 'state', 'state_code', 'province', 'province_code', 'community', 'community_code', 'latitude', 'longitude'];
