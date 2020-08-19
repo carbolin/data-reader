@@ -1,10 +1,12 @@
 import { DataReader } from '../models/DataReader';
 import path from 'path';
 import fs from 'fs';
+import _, { Dictionary } from 'lodash';
 
-export class TxtToJsonParser implements DataReader<string[]> {
+export class GeoFileReader implements DataReader {
 
-    data: string[][] = [];
+    data: Dictionary<string>[] = [];
+    private address: string[] = ['country_code', 'zipcode', 'place', 'state', 'state_code', 'province', 'province_code', 'community', 'community_code', 'latitude', 'longitude'];
 
     constructor(private _fileName: string) { }
 
@@ -18,8 +20,8 @@ export class TxtToJsonParser implements DataReader<string[]> {
             encoding: 'utf-8'
         })
             .split('\n')
-            .map((row: string): string[] => row.split('\t'));
-
+            .map((row: string): string[] => _.dropRight(row.split('\t')))
+            .map((element: string[]): Dictionary<string> => _.zipObject(this.address, element));
     }
 
     get fileName(): string {

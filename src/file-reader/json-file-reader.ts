@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import { DataReader } from '../models/DataReader';
 
-export class JsonFileReader<T> implements DataReader<T> {
+export class JsonFileReader implements DataReader {
 
-    data: T[] = [];
+    data: string[] = [];
 
     constructor(private _fileName: string) { }
 

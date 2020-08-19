@@ -1,5 +1,5 @@
-export interface DataReader<T> {
+export interface DataReader {
 
-    data: T[];
+    data: any[];
     read(): void;
 }

@@ -5,7 +5,7 @@ export class AddressReader {
 
     private _addresses: Address[] = [];
 
-    constructor(private reader: DataReader<Address>) { }
+    constructor(private reader: DataReader) { }
 
     load(): void {
 
