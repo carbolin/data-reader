@@ -4,7 +4,7 @@ import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
-export class StateWithZipAnalyzer<T extends Address> implements Analyzer<T> {
+export class StateWithZipcodesAnalyzer<T extends Address> implements Analyzer<T> {
 
     private _result: Partial<Province>[] = [];
 

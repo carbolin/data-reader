@@ -1,16 +1,10 @@
 import * as _ from 'lodash';
 import { Analyzer } from '../models/Analyzer';
 import { Province } from '../models/Province';
+import { Address } from '../models/Address';
 
 
-interface StateConstraint {
-
-    country_code: string;
-    state_code: string;
-    state: string;
-}
-
-export class StateAnalyzer<T extends StateConstraint> implements Analyzer<T> {
+export class StateAnalyzer<T extends Address> implements Analyzer<T> {
 
     private _result!: Partial<Province>[];
 
@@ -18,7 +12,7 @@ export class StateAnalyzer<T extends StateConstraint> implements Analyzer<T> {
 
         const provinces: Partial<Province>[] = addresses
             .map((address: T): Partial<Province> => {
-                return { country: { code: address.country_code }, code: address.state_code, name: address.state }
+                return { country: { code: address.country_code }, code: address.state_code, name: address.state };
             });
 
         this._result = _.uniqBy(provinces, province => province.code);
