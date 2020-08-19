@@ -1,6 +1,6 @@
 import { AppInitiator } from './app-initiator';
 import { FirebaseConfig } from '../../models/FirebaseConfig';
-import firebase from 'firebase';
+import { firestore } from 'firebase';
 
 export class DbInitiator extends AppInitiator {
 
@@ -9,10 +9,10 @@ export class DbInitiator extends AppInitiator {
         super(firebaseConfig);
     }
 
-    dbInit(): firebase.firestore.Firestore {
+    dbInit(): firestore.Firestore {
 
         this.init();
 
-        return firebase.firestore();
+        return firestore();
     }
 }

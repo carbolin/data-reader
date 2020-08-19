@@ -11,7 +11,6 @@ export class ZipcodeAnalyzer<T extends Address> implements Analyzer<T> {
 
         this._result = _.uniq(addresses
             .map((address: T): string => address.zipcode));
-
     }
 
     get result(): string[] {
