@@ -1,7 +1,8 @@
 export interface Country {
 
-    code: string;
+    alpha2Code: string;
     name?: string;
     capital?: string;
-    country_code?: string;
+    callingCodes?: string[];
+    flag?: string;
 }
