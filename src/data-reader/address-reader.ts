@@ -20,15 +20,11 @@ export class AddressReader {
                     state: address.state,
                     state_code: address.state_code,
                     province: address.province,
-                    // tslint:disable-next-line: radix
-                    province_code: parseInt(address.province_code),
+                    province_code: parseInt(address.province_code, 10),
                     community: address.community,
-                    // tslint:disable-next-line: radix
-                    community_code: parseInt(address.community_code),
-                    // tslint:disable-next-line: radix
-                    latitude: parseInt(address.latitude),
-                    // tslint:disable-next-line: radix
-                    longitude: parseInt(address.longitude),
+                    community_code: parseInt(address.community_code, 10),
+                    latitude: parseInt(address.latitude, 10),
+                    longitude: parseInt(address.longitude, 10),
                 };
             });
     }
