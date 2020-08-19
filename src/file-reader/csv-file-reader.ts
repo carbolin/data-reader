@@ -20,7 +20,6 @@ export class CSVFileReader implements DataReader<string[]> {
                 .map((row: string): string[] => row.split(','));
 
         else throw new Error(`${this._fileName} is not of CSV Format`);
-
     }
 
     get fileName(): string {
