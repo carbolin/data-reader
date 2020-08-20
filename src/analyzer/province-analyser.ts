@@ -11,7 +11,7 @@ export class ProvinceAnalyzer implements Analyzer<Address> {
     run(addresses: Address[]): void {
 
         let provinces: Partial<Province>[] = addresses.map((address): Partial<Province> => {
-            return { country: { code: address.country_code }, code: address.state_code, name: address.state };
+            return { country: { alpha2Code: address.country_code, name: 'österreich', capital: 'wien', callingCodes: ['43'], flag: 'https://firebasestorage.googleapis.com/v0/b/dentalmergedev.appspot.com/o/data%2Fimages%2Fflags%2Fsvg%2Fat.svg?alt=media&token=94cd3d58-9ec5-42fe-b407-0ad1c242b3fa' }, code: address.state_code, name: address.state };
         });
 
         provinces = _.uniqBy(provinces, province => province.code);
