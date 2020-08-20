@@ -12,7 +12,7 @@ export class StateAnalyzer implements Analyzer<Address> {
 
         const provinces: Partial<Province>[] = addresses
             .map((address: Address): Partial<Province> => {
-                return { country: { code: address.country_code }, code: address.state_code, name: address.state };
+                return { code: address.state_code, name: address.state };
             });
 
         this._result = _.uniqBy(provinces, province => province.code);
