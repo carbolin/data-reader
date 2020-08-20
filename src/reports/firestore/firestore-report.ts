@@ -7,6 +7,8 @@ export class FirestoreReport<T> implements OutputTarget<T> {
 
     async print(report: T[]): Promise<void> {
 
+        console.log('Anzahl der Dokumente: ', report.length);
+
         if (report.length <= 500) {
 
             const batch: firestore.WriteBatch = this.db.batch();
