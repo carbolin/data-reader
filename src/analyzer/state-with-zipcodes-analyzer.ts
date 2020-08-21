@@ -1,22 +1,22 @@
 import { Analyzer } from '../models/Analyzer';
-import { Province } from '../models/Province';
+import { ProvinceDetails } from '../models/ProvinceDetails';
 import { Address } from '../models/Address';
 import _ from 'lodash';
 
 
 export class StateWithZipcodesAnalyzer implements Analyzer<Address> {
 
-    private _result: Partial<Province>[] = [];
+    private _result: Partial<ProvinceDetails>[] = [];
 
     run(addresses: Address[]): void {
 
-        let provinces: Partial<Province>[] = addresses.map((address: Address): Partial<Province> => {
+        let provinces: Partial<ProvinceDetails>[] = addresses.map((address: Address): Partial<ProvinceDetails> => {
             return { country: { code: address.country_code }, code: address.state_code, name: address.state };
         });
 
         provinces = _.uniqBy(provinces, province => province.code);
 
-        provinces.forEach((province: Partial<Province>): void => {
+        provinces.forEach((province: Partial<ProvinceDetails>): void => {
 
             const zipcodes: string[] = _.uniq(addresses
                 .filter((address: Address): boolean => address.state_code === province.code)
@@ -26,7 +26,7 @@ export class StateWithZipcodesAnalyzer implements Analyzer<Address> {
         });
     }
 
-    get result(): Partial<Province>[] {
+    get result(): Partial<ProvinceDetails>[] {
 
         return this._result;
     }
