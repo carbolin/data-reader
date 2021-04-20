@@ -1,11 +1,11 @@
 import fs from 'fs';
 import _ from 'lodash';
-import { OutputTarget } from '../models/OutputTarget';
 
+import { OutputTarget } from '../models/OutputTarget';
 
 export class JsonReport<T> implements OutputTarget<T> {
 
-    print(report: T[]): void {
+    print(report: any): void {
 
         const fileName = 'report.json';
 

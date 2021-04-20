@@ -1,8 +1,8 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
+
+import { Address } from '../models/Address';
 import { Analyzer } from '../models/Analyzer';
 import { ProvinceDetails } from '../models/ProvinceDetails';
-import { Address } from '../models/Address';
-
 
 export class StateAnalyzer implements Analyzer<Address> {
 
