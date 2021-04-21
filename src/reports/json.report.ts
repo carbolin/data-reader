@@ -1,7 +1,7 @@
 import fs from 'fs';
 import _ from 'lodash';
 
-import { OutputTarget } from '../models/OutputTarget';
+import { OutputTarget } from '../models/output-target.interface';
 
 export class JsonReport<T> implements OutputTarget<T> {
 

@@ -1,5 +1,5 @@
 import { AppInitiator } from './app-initiator';
-import { FirebaseConfig } from '../../models/FirebaseConfig';
+import { FirebaseConfig } from '../../models/firebase-config.interface';
 import { firestore } from 'firebase';
 
 export class DbInitiator extends AppInitiator {

@@ -1,6 +1,6 @@
 import { firestore } from 'firebase';
 
-import { OutputTarget } from '../../models/OutputTarget';
+import { OutputTarget } from '../../models/output-target.interface';
 
 export class FirestoreReport<T> implements OutputTarget<T> {
 
@@ -8,9 +8,11 @@ export class FirestoreReport<T> implements OutputTarget<T> {
 
     async print(report: T[]): Promise<void> {
 
-        console.log('Anzahl der Dokumente: ', report.length);
+        console.log('Document count: ', report.length);
 
         if (report.length <= 500) {
+
+            console.log('Uploading documents...');
 
             const batch: firestore.WriteBatch = this._db.batch();
 
@@ -38,7 +40,7 @@ export class FirestoreReport<T> implements OutputTarget<T> {
             try {
                 await batch.commit();
 
-                console.log(`${report.length} Documents uploaded to Firestore`);
+                console.log(`${report.length} documents uploaded to Firestore`);
 
                 process.exit(0);
             }
@@ -49,8 +51,13 @@ export class FirestoreReport<T> implements OutputTarget<T> {
                 process.exit(-1);
             }
 
-        } else
+        } else {
+
             console.log('Exceeded max. number of Documents');
+            
+            process.exit(0);
+        }
+
     }
 
 }

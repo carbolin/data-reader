@@ -1,4 +1,4 @@
-export interface Address {
+export interface GeonameAddress {
 
     country_code: string;
     zipcode: string;

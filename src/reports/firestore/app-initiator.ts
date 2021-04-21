@@ -1,4 +1,4 @@
-import { FirebaseConfig } from '../../models/FirebaseConfig';
+import { FirebaseConfig } from '../../models/firebase-config.interface';
 import firebase from 'firebase/app';
 
 

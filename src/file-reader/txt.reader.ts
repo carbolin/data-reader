@@ -1,4 +1,4 @@
-import { DataReader } from '../models/DataReader';
+import { DataReader } from '../models/data-reader.interface';
 import path from 'path';
 import fs from 'fs';
 
