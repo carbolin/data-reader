@@ -9,9 +9,11 @@ export class JsonReport<T> implements OutputTarget<T> {
 
         const fileName = 'report.json';
 
-        fs.writeFile(`../output/${new Date().getTime()}_${fileName}`, JSON.stringify(report), () => {
+        const dataTime = new Date().getTime();
 
-            console.log(`Report written to ${new Date().getTime()}_${fileName}`);
+        fs.writeFile(`../output/${dataTime}_${fileName}`, JSON.stringify(report), () => {
+
+            console.log(`Report written to ${dataTime}_${fileName}`);
 
         });
     }
